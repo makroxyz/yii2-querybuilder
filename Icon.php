@@ -3,7 +3,7 @@
 namespace leandrogehlen\querybuilder;
 
 
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * The icon object representation
@@ -11,7 +11,7 @@ use yii\base\Object;
  * @see http://mistic100.github.io/jQuery-QueryBuilder/#icons
  * @author Leandro Gehlen <leandrogehlen@gmail.com>
  */
-class Icon extends Object implements Optionable
+class Icon extends BaseObject implements Optionable
 {
     use OptionTrait;
 

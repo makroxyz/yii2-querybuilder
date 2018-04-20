@@ -3,7 +3,7 @@
 namespace leandrogehlen\querybuilder;
 
 use Yii;
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * The filter object representation
@@ -11,7 +11,7 @@ use yii\base\Object;
  * @see http://mistic100.github.io/jQuery-QueryBuilder/#filters
  * @author Leandro Gehlen <leandrogehlen@gmail.com>
  */
-class Filter extends Object implements Optionable {
+class Filter extends BaseObject implements Optionable {
 
     use OptionTrait;
 
