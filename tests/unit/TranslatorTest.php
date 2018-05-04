@@ -8,7 +8,7 @@ use leandrogehlen\querybuilder\Translator;
 class TranslatorTest extends TestCase
 {
 
-    protected function rulesProvider()
+    public function rulesProvider()
     {
         return [
             [
@@ -96,19 +96,18 @@ class TranslatorTest extends TestCase
     }
 
 
-    public function testRules()
+    /**
+     * @dataProvider rulesProvider
+     */
+    public function testRules($rule, $expected)
     {
-        foreach ($this->rulesProvider() as $rule) {
-            $translator = new Translator($rule[0]);
-            $expected = $rule[1];
+        $translator = new Translator($rule);
+        $this->assertEquals($expected[0], $translator->where());
 
-            $this->assertEquals($expected[0], $translator->where());
-
-            $params = $translator->params();
-            foreach ($expected[1] as $key => $value) {
-                $this->assertArrayHasKey($key, $params);
-                $this->assertEquals($value, $params[$key]);
-            }
+        $params = $translator->params();
+        foreach ($expected[1] as $key => $value) {
+            $this->assertArrayHasKey($key, $params);
+            $this->assertEquals($value, $params[$key]);
         }
     }
 } 
