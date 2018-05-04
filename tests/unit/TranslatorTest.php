@@ -107,12 +107,6 @@ class TranslatorTest extends TestCase
         $translator = new Translator($rule);
         $expectedWhere = $expected[0];
         $this->assertEquals($expectedWhere, $translator->where());
-
-        $params = $translator->params();
-        foreach ($expected[1] as $key => $value) {
-            //$this->assertArrayHasKey($key, $params);
-            //$this->assertEquals($value, $params[$key]);
-        }
     }
 
     /**
@@ -128,4 +122,14 @@ class TranslatorTest extends TestCase
             $this->assertTrue(in_array($value,$values));
         }
     }
-} 
+    /**
+     * @dataProvider rulesProvider
+     * @param array $rule
+     * @param array $expected
+     */
+    public function testHasRightParamsCount($rule, $expected) {
+        $translator = new Translator($rule);
+        $params = $translator->params();
+        $this->assertEquals(count($params),count($expected[1]));
+    }
+}
