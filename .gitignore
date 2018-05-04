@@ -1,13 +1,12 @@
-# phpstorm project files
-.idea
+# any dot-files except defined
+.*
+!.gitignore
+!.scrutinizer.yml
+!.travis.yml
 
 # netbeans project files
 nbproject
 
-# zend studio for eclipse project files
-.buildpath
-.project
-.settings
 
 # windows thumbnail cache
 Thumbs.db
@@ -17,13 +16,11 @@ Thumbs.db
 
 # composer itself is not needed
 composer.phar
-
-# Mac DS_Store Files
-.DS_Store
+composer.lock
 
 # phpunit itself is not needed
 phpunit.phar
+
 # local phpunit config
 /phpunit.xml
 
-composer.lock
