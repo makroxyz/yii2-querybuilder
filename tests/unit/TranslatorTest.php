@@ -98,6 +98,8 @@ class TranslatorTest extends TestCase
 
     /**
      * @dataProvider rulesProvider
+     * @param array $rule
+     * @param array $expected
      */
     public function testRules($rule, $expected)
     {
@@ -115,6 +117,8 @@ class TranslatorTest extends TestCase
 
     /**
      * @dataProvider rulesProvider
+     * @param array $rule
+     * @param array $expected
      */
     public function testHasParamValues($rule, $expected) {
         $translator = new Translator($rule);
