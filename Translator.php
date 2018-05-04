@@ -2,6 +2,8 @@
 
 namespace leandrogehlen\querybuilder;
 
+use PascalDeVink\ShortUuid\ShortUuid;
+use Ramsey\Uuid\Uuid;
 use yii\base\BaseObject;
 use yii\helpers\ArrayHelper;
 
@@ -40,9 +42,9 @@ class Translator extends BaseObject
     private $_operators;
     /**
      * @var array The params from yii\db\Query object that are already set so we don't overwrite them
+     * @deprecated
      */
     private $currentParams = [];
-    private $paramsCount = 0;
 
     /**
      * Constructors.
@@ -181,19 +183,14 @@ class Translator extends BaseObject
      * @return string
      */
     private function getNewParamName(){
-        $paramPrefix = 'p';
-        if(!empty($this->currentParams) && $this->paramsCount < count($this->currentParams) ){
-            $this->paramsCount = count($this->currentParams) +1;
-        }else{
-            $this->paramsCount = $this->paramsCount + 1;
-        }
-        return $paramPrefix.$this->paramsCount;
-    }    
+        $shortUUid = new ShortUuid();
+        return $shortUUid->encode(Uuid::uuid4());
+    }
 
-   /**
-     * 
+    /**
+     *
      * @param array $currentParams
-     * @return \leandrogehlen\querybuilder\Translator
+     * @deprecated
      */
     public function setCurrentParams($currentParams) {
         $this->currentParams = $currentParams;
