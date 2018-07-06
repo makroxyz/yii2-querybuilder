@@ -36,7 +36,11 @@ trait OptionTrait
             }
 
             if (!is_array($value) && $value !== null || !empty($value)) {
-                $options[$key] = $value;
+                if ($key == 'data') {
+                    $options += $value;
+                } else {
+                    $options[$key] = $value;
+                }
             }
         }
         return $options;

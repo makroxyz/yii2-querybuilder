@@ -9,18 +9,11 @@
         "source": "https://github.com/leandrogehlen/yii2-querybuilder"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
     "authors": [
         {
             "name": "Leandro Guindani Gehlen",
             "email": "leandrogehlen@gmail.com"
         }
-    ],
-    "repositories": [
-      {
-        "type": "composer",
-        "url": "https://asset-packagist.org"
-      }
     ],
     "require": {
         "php": "^7.0",
@@ -34,10 +27,5 @@
     },
     "autoload": {
         "psr-4": { "leandrogehlen\\querybuilder\\": "" }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.2.x-dev"
-        }
     }
 }
